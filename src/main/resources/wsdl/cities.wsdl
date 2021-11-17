@@ -1,0 +1,58 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://prateep.info/spring/soapws" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://prateep.info/spring/soapws" targetNamespace="http://prateep.info/spring/soapws">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://prateep.info/spring/soapws">
+            <xs:element name="getStateRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="id" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getStateResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="state" type="tns:state"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="state">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:string"/>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="population" type="xs:int"/>
+                    <xs:element name="capital" type="xs:string"/>
+                    <xs:element name="language" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getStateRequest">
+        <wsdl:part element="tns:getStateRequest" name="getStateRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getStateResponse">
+        <wsdl:part element="tns:getStateResponse" name="getStateResponse"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="StatesPort">
+        <wsdl:operation name="getState">
+            <wsdl:input message="tns:getStateRequest" name="getStateRequest"> </wsdl:input>
+            <wsdl:output message="tns:getStateResponse" name="getStateResponse"> </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="StatesPortSoap11" type="tns:StatesPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getState">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="getStateRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getStateResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="StatesPortService">
+        <wsdl:port binding="tns:StatesPortSoap11" name="StatesPortSoap11">
+            <soap:address location="http://localhost:8080/ws"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
