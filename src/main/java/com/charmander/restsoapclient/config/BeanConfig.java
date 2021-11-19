@@ -1,4 +1,4 @@
-package com.charmander.restsoapclient;
+package com.charmander.restsoapclient.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
