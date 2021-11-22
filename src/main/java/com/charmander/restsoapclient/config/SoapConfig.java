@@ -5,9 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 @Configuration
-public class BeanConfig {
-
-
+public class SoapConfig {
 
 
         @Bean
@@ -17,16 +15,6 @@ public class BeanConfig {
             return marshaller;
         }
 
+    }
 
-    /*
-    @Bean
-    public SoapClient soapConnector(Jaxb2Marshaller marshaller) {
-        SoapClient client = new SoapClient();
-        client.setDefaultUri("https://pg-produce-spring-boot-soap-ws.herokuapp.com/ws/states.wsdl");
-        client.setMarshaller(marshaller);
-        client.setUnmarshaller(marshaller);
-        return client;
-    }
-    */
-    }
-}
+
