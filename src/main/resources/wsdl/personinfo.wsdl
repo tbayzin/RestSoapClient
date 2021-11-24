@@ -1,0 +1,60 @@
+<wsdl:definitions
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:sch="http://www.github.com/tbayzin/SoapWS"
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:tns="http://www.github.com/tbayzin/SoapWS"
+        targetNamespace="http://www.github.com/tbayzin/SoapWS">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                    elementFormDefault="qualified"
+                    targetNamespace="http://www.github.com/tbayzin/SoapWS">
+            <xsd:element name="PersonRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="ID" type="xsd:long" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Acknowledgement">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="personName" type="xsd:string" />
+                        <xsd:element name="personSurname" type="xsd:string" />
+                        <xsd:element name="birthYear" type="xsd:long" />
+                        <xsd:element name="city" type="xsd:string" />
+
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="PersonRequest">
+        <wsdl:part element="tns:PersonRequest"
+                   name="PersonRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="PersonCheckindicator">
+        <wsdl:operation name="Person">
+            <wsdl:input message="tns:PersonRequest"
+                        name="PersonRequest">
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PersonCheckindicatorSoap11"
+                  type="tns:PersonCheckindicator">
+        <soap:binding style="document"
+                      transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="Person">
+            <soap:operation soapAction="" />
+            <wsdl:input name="PersonRequest">
+                <soap:body use="literal" />
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="PersonCheckindicatorService">
+        <wsdl:port binding="tns:PersonCheckindicatorSoap11"
+                   name="PersonCheckindicatorSoap11">
+            <soap:address location="http://localhost:8080/ws" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

@@ -1,4 +1,4 @@
-package com.charmander.restsoapclient.config;
+package com.charmander.soapclient.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +11,7 @@ public class SoapConfig {
         @Bean
         public Jaxb2Marshaller marshaller() {
             Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-            marshaller.setContextPath("com.charmander.restsoapclient.stub");
+            marshaller.setContextPath("com.charmander.soapclient.personinfo");
             return marshaller;
         }
 

@@ -9,12 +9,12 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.charmander</groupId>
-    <artifactId>RestSoapClient</artifactId>
+    <artifactId>SoapClient</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>RestSoapClient</name>
-    <description>RestSoapClient</description>
+    <name>SoapClient</name>
+    <description>SoapClient</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>1.8</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -49,7 +49,7 @@
                 </executions>
                 <configuration>
                     <schemaLanguage>WSDL</schemaLanguage>
-                    <generatePackage>com.charmander.restsoapclient.stub</generatePackage>
+                    <generatePackage>com.charmander.soapclient.personinfo</generatePackage>
                     <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
                     <schemaDirectory>${project.basedir}/src/main/resources/wsdl</schemaDirectory>
                     <schemaIncludes>

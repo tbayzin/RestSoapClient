@@ -1,10 +1,10 @@
-package com.charmander.restsoapclient;
+package com.charmander.soapclient;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RestSoapClientApplicationTests {
+class SoapClientApplicationTests {
 
     @Test
     void contextLoads() {
